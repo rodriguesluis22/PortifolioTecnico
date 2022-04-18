@@ -1,0 +1,72 @@
+class Main {
+  public static void main(String[] args) {
+    Animal animal;
+    Habitat habitat;
+    animal = new Animal("jacare do papo amarelo",           "repitiliana", "Chordata", "Reptilia", "Crocodylia", "Crocodylia");
+   habitat = new Habitat(animal, "pantanal"); 
+    System.out.println("Hello world!");
+    
+  }
+}
+ public class Animal{
+  private String especie, filo, classe, ordem, genero, familia;
+
+  public Animal(String especie, String filo, String classe, String ordem, String genero, String familia){
+    this.familia = familia;
+    this.especie = especie;
+    this.filo = filo;
+    this.classe = classe;
+    this.ordem = ordem;
+    this.genero = genero;
+  }
+  public void comer(){
+    
+  }
+}
+ public class Fauna{
+  private Animal animal;
+  private String especie;
+
+  public Fauna(String especie){
+    this.especie = especie;
+  }
+  public void criarAnimal(){
+   animal = new Animal("jacare do papo amarelo", "repitiliana", "Chordata", "Reptilia", "Crocodylia", "Crocodylia" ); 
+  }
+}
+ public class Flora{
+  private String planta;
+
+  public Flora(){
+    
+  }
+  public void adicionarPlanta(String planta){
+    
+  }
+}
+ public class Habitat{
+  private Animal animal;
+  private Fauna fauna;
+  private Flora flora;
+  private String tipo;
+
+  public Habitat(Animal animal, String tipo){
+    this.animal = animal;
+    this.tipo = tipo;
+  }
+  public void criarFauna(String especie){
+    fauna = new Fauna(especie);
+  }
+  public void criarFlora(String planta){
+    flora = new Flora();
+  }
+}
+ public class Mamifero extends Animal{
+  private int gestacao;
+  private int amamentacao;
+
+  public Mamifero(String especie, String filo, String classe, String ordem, String genero, String familia){
+    super( especie, filo, ordem, genero, classe, familia);
+    
+  }
+}
