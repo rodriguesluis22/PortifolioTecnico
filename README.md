@@ -8,3 +8,5 @@ https://github.com/rodriguesluis22/PortifolioTecnico/blob/67780896f44c043de645db
 
 2° trimestre
 https://github.com/rodriguesluis22/PortifolioTecnico/blob/6498960b0c4f91dcc7f68ae5e25fa832e08f20f0/ControleDaFuma%C3%A7a.zip Essa Atividade foi feita em grupo e abrage todas os fundamnetos do curso entao é bem inportante colocar essa atividade aqui 
+
+https://github.com/rodriguesluis22/PortifolioTecnico/blob/8bce15f0c1d0aa091d52cbbc988113ca5d08f05f/Sa.zip essa atividade foi a primeira feita em grupo é o teste vocacional 
