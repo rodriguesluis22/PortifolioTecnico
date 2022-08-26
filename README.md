@@ -7,3 +7,4 @@ https://github.com/rodriguesluis22/PortifolioTecnico/blob/f65cfd68c132024e28fae5
 https://github.com/rodriguesluis22/PortifolioTecnico/blob/67780896f44c043de645dbc3a7a41a2e02167ae6/geometriaEspacial - esse cod foi o primeiro que eu fiz usando o android studio e eu gostei muito desse 
 
 2° trimestre
+ControleDaFumaça.zip Essa Atividade foi feita em grupo e abrage todas os fundamnetos do curso entao é bem inportante colocar essa atividade aqui 
