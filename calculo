@@ -1,0 +1,97 @@
+package com.example.prisma;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+
+public class Conta extends AppCompatActivity {
+    static int conta;
+    EditText et1, et2, et3;
+    TextView resultado;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_conta);
+        getSupportActionBar().hide();
+        et1 = findViewById(R.id.et1);
+        et2 = findViewById(R.id.et2);
+        et3 = findViewById(R.id.et3);
+        resultado = findViewById(R.id.resultado);
+        atualizaTela();
+    }
+
+    public void atualizaTela() {
+        if (conta == 1) {
+            et1.setHint("Area de base");
+            et2.setHint("Numero de faces");
+            et3.setHint("Area de faces");
+        }
+        else if (conta == 2) {
+            et1.setHint("Area da base");
+            et2.setHint("Numero de faces");
+            et3.setHint("Area de faces");
+        }
+        else if (conta == 3) {
+            et1.setHint("volume");
+            et2.setHint("altura");
+            et3.setVisibility(View.INVISIBLE);
+        }
+        else if (conta == 4) {
+            et1.setHint("Area total");
+            et2.setHint("Area da base");
+            et3.setHint("area de faces");
+        }
+        else if (conta == 5) {
+            et1.setHint("Area total");
+            et2.setHint("area da base");
+            et3.setHint("numero de faces ");
+        }
+        else if (conta == 6) {
+            et1.setHint("Digite a Area de base");
+            et2.setHint("Digite a Altura");
+            et3.setVisibility(View.INVISIBLE);
+        }
+        else if (conta == 7) {
+            et1.setHint("area da base ");
+            et2.setHint("volume");
+            et3.setVisibility(View.INVISIBLE);
+        }
+    }
+    public void calculo(View abacate){
+        double a = Double.parseDouble(et1.getText().toString());
+        double b = Double.parseDouble(et1.getText().toString());
+        double c;
+        switch (conta) {
+            case 1:
+                c = Double.parseDouble(et3.getText().toString());
+                 double calc = 2 * a + b * c;
+                resultado.setText(calc + "");
+            case 2:
+                c = Double.parseDouble(et3.getText().toString());
+                  calc = (a - b * c) /2;
+                resultado.setText(calc + "");
+            case 3:
+                calc = a / b;
+                resultado.setText(calc + "");
+            case 4:
+                c = Double.parseDouble(et3.getText().toString());
+                calc = a - 2*b /c;
+                resultado.setText(calc + "");
+            case 5:
+                c = Double.parseDouble(et3.getText().toString());
+                calc = a - 2*b /c;
+                resultado.setText(calc + "");
+            case 6:
+                calc = a * b;
+                resultado.setText(calc + "");
+            case 7:
+                calc = a / b;
+                resultado.setText(calc + "");
+
+        }
+    }
+}
