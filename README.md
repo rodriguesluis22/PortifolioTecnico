@@ -15,3 +15,9 @@ https://github.com/rodriguesluis22/PortifolioTecnico/blob/8bce15f0c1d0aa091d52cb
 3° TRIMESTRE 
 
 https://github.com/rodriguesluis22/PortifolioTecnico/blob/main/Babysis%20cadastro  é a atela de cadastro do aplicativo final 
+
+
+
+
+AUTORIA 
+https://github.com/rodriguesluis22/PortifolioTecnico/blob/main/calculo é uma atividade de calculo que fiz em casa 
