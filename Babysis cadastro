@@ -1,0 +1,143 @@
+package com.example.baba;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+
+public class Cadastra extends AppCompatActivity {
+    EditText login, senha, idade, valor;
+    Usuario u = new Usuario();
+    RadioButton radioM, radioT, radioN;
+    RadioButton masc, fem, outros;
+    boolean aux = false;
+    boolean dpd = false;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_cadastra);
+        getSupportActionBar().hide();
+        login = findViewById(R.id.login);
+        senha = findViewById(R.id.senha);
+        radioM = findViewById(R.id.radioM);
+        radioT = findViewById(R.id.radioT);
+        radioN = findViewById(R.id.radioN);
+        masc = findViewById(R.id.Rmasc);
+        fem = findViewById(R.id.Rfem);
+        outros = findViewById(R.id.Routros);
+        idade = findViewById(R.id.idade);
+        valor = findViewById(R.id.valor);
+    }
+
+    public void cadastro(View patolino) {
+
+        caadastro();
+
+    }
+
+    public void caadastro() {
+        if (dpd == false) {
+            verifica_usu();
+        } else if (dpd == true) {
+            String sx = "";
+            String t = "";
+
+
+            if(radioM.isChecked()){
+                t = "Manhã";
+            }
+            else if(radioT.isChecked()){
+                t = "Tarde";
+            }
+            else if(radioN.isChecked()){
+                t = "Noite";
+            }
+            else{
+                pint("Você não selecionou nenhum TURNO");
+            }
+
+
+
+
+            if (masc.isChecked()){
+                sx = "Masculino";
+            }
+            else if (fem.isChecked()){
+                sx = " Feminino";
+            }
+
+            else if (outros.isChecked()){
+                sx = "Outros";
+            }
+            else{
+                pint("Voce nao selecionou nemnhum SEXO");
+            }
+
+
+
+            String l = login.getText().toString();
+            String s = senha.getText().toString();
+            String i = idade.getText().toString();
+            String v = valor.getText().toString();
+            //pint(turno.getText().toString());
+            Usuario u = new Usuario(l, s, i, t, sx, v);
+            u.salvar_Bd();
+
+        }
+    }
+
+    public void pint(String mensagem) {
+        Toast.makeText(this, mensagem, Toast.LENGTH_SHORT).show();
+
+    }
+
+    public void verifica_usu() {
+        DatabaseReference r = FirebaseDatabase.getInstance().getReference().child("Usuario");
+        r.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String l = login.getText().toString();
+                String s = senha.getText().toString();
+                for (DataSnapshot usuario : snapshot.getChildren()) {
+                    if (usuario.getValue(Usuario.class).getLogin().equals(l)
+                            && usuario.getValue(Usuario.class).getSenha() == s) {
+                        aux = true;
+                        pint("Usuario Já Existe");
+                        break;
+                    }
+                }
+                if (aux == false) {
+                    dpd = true;
+                    pint("Usuario Nao Existe");
+
+                    caadastro();
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+
+    public void btVoltar(View v){
+        Intent m = new Intent(this, MainActivity.class);
+        startActivity(m);
+    }
